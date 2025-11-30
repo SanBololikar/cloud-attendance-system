@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Attendance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        input, button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        button:hover:not(:disabled) {
+            background-color: #4cae4c;
+        }
+        button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+        #auth-section button {
+            width: 48%; 
+            display: inline-block;
+        }
+        #login-btn {
+            background-color: #007bff;
+        }
+        #login-btn:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+        #logout-btn {
+            background-color: #dc3545;
+        }
+        #logout-btn:hover:not(:disabled) {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="auth-section">
+            <h2>User Authentication</h2>
+            <input type="email" id="email-input" placeholder="Email">
+            <input type="password" id="password-input" placeholder="Password">
+            <button id="signup-btn">Sign Up</button>
+            <button id="login-btn">Login</button>
+            <p id="error-message" style="color: red; margin-top: 10px;"></p>
+        </div>
+
+        <div id="dashboard-section" style="display: none;">
+            <h2>Welcome, <span id="user-email"></span>!</h2>
+            
+            <section id="attendance-marking">
+                <h3>Mark Daily Attendance</h3>
+                <button id="mark-attendance-btn">Mark Attendance</button>
+                <p id="status-message" style="margin-top: 10px; color: #333;"></p>
+            </section>
+            
+            <section id="reports-and-logout" style="margin-top: 20px;">
+                <button id="report-btn">Generate Report</button>
+                <button id="logout-btn" style="margin-left: 10px;">Logout</button>
+            </section>
+
+            <section id="attendance-report" style="margin-top: 30px; display: none;">
+                <h3>Your Attendance History</h3>
+                <table id="attendance-table" style="width: 100%; border-collapse: collapse;">
+                  <thead>
+                    <tr>
+                      <th style="border: 1px solid #ccc; padding: 8px;">Date</th>
+                      <th style="border: 1px solid #ccc; padding: 8px;">Status</th>
+                      <th style="border: 1px solid #ccc; padding: 8px;">Time Marked</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attendance-body">
+                    </tbody>
+                </table>
+                <p id="report-message" style="color: blue; margin-top: 10px;"></p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script src="/scripts/app.js"></script>
+</body>
+</html>
