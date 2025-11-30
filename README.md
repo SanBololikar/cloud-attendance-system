@@ -2,6 +2,10 @@
 
 A modern, cloud-based attendance tracking system built with Firebase, designed to help organizations manage employee attendance efficiently and securely.
 
+## 🌐 Live Demo
+
+[View Live Application](https://attendance-system-2025-3e69b.web.app)
+
 ## 🚀 Features
 
 - **User Authentication**: Secure sign-up and login system using Firebase Authentication
